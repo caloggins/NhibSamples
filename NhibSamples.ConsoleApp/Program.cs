@@ -1,14 +1,69 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace NhibSamples.ConsoleApp
+﻿namespace NhibSamples.ConsoleApp
 {
-    class Program
+    using System;
+    using Castle.Windsor;
+    using Library.Models;
+    using NHibernate;
+
+    public class Program : IHazRun
     {
-        static void Main(string[] args)
+        private readonly ISessionFactory sessionFactory;
+
+        static void Main()
         {
+            try
+            {
+                Console.WriteLine();
+                Console.WriteLine("Starting test...");
+
+                var container = new WindsorContainer();
+                var bootstrap = new Bootstrap
+                                    {
+                                        ConnectionString =
+                                            "Data Source=localhost;Initial Catalog=NhibSampleData;Integrated Security=SSPI;"
+                                    };
+
+                bootstrap.InitializeContainer(container);
+
+                var program = container.Resolve<IHazRun>();
+                program.Run();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine();
+                Console.WriteLine("{0}", exception);
+            }
+            finally
+            {
+                Console.WriteLine();
+                Console.WriteLine("Press any key to exit.");
+                Console.ReadKey();
+            }
+        }
+
+        public Program(ISessionFactory sessionFactory)
+        {
+            this.sessionFactory = sessionFactory;
+        }
+
+        public void Run()
+        {
+            using (var session = sessionFactory.OpenSession())
+            {
+                long id;
+
+                using (var tx = session.BeginTransaction())
+                {
+                    var order = new Order {Comments = "No comment.", DatePlaced = DateTime.Now};
+                    id = (long) session.Save(order);
+                    tx.Commit();
+                }
+
+                var savedOrder = session.Get<Order>(id);
+                
+                Console.WriteLine();
+                Console.WriteLine(savedOrder);
+            }
         }
     }
 }
