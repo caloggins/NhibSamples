@@ -21,7 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhibSamples.Library", "Nhib
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TableScripts", "TableScripts", "{0C1FDF24-6128-4996-8BBD-AE80278CFA6F}"
 	ProjectSection(SolutionItems) = preProject
-		SqlScripts\OrdersTable.sql = SqlScripts\OrdersTable.sql
+		SqlScripts\CustomerOrdersTable.sql = SqlScripts\CustomerOrdersTable.sql
+		ProductsTable.sql = ProductsTable.sql
 	EndProjectSection
 EndProject
 Global

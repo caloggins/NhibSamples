@@ -12,7 +12,13 @@
             [TestMethod]
             public void ItShouldDefineTheOrdersTable()
             {
-                DatabaseTable.Orders.Should().Be("Orders");
+                DatabaseTable.CustomerOrders.Should().Be("CustomerOrders");
+            }
+
+            [TestMethod]
+            public void ItShouldDefineTheProductsTable()
+            {
+                DatabaseTable.Products.Should().Be("Products");
             }
         }
     }

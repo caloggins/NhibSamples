@@ -54,12 +54,12 @@
 
                 using (var tx = session.BeginTransaction())
                 {
-                    var order = new Order {Comments = "No comment.", DatePlaced = DateTime.Now};
+                    var order = new CustomerOrder {Comments = "No comment.", DatePlaced = DateTime.Now};
                     id = (long) session.Save(order);
                     tx.Commit();
                 }
 
-                var savedOrder = session.Get<Order>(id);
+                var savedOrder = session.Get<CustomerOrder>(id);
                 
                 Console.WriteLine();
                 Console.WriteLine(savedOrder);

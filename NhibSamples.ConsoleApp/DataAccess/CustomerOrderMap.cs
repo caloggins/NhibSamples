@@ -5,11 +5,11 @@
     using NHibernate.Mapping.ByCode.Conformist;
     using UserTypes;
 
-    public class OrderMap : ClassMapping<Order>
+    public class CustomerOrderMap : ClassMapping<CustomerOrder>
     {
-        public OrderMap()
+        public CustomerOrderMap()
         {
-            Table(DatabaseTable.Orders);
+            Table(DatabaseTable.CustomerOrders);
 
             Id(order => order.OrderId, mapper => mapper.Generator(Generators.Identity));
             

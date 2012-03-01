@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class Order
+    public class CustomerOrder
     {
         public virtual long OrderId { get; set; }
         public virtual string Comments { get; set; }
@@ -11,7 +11,7 @@
 
         public override string ToString()
         {
-            return string.Format("Order ({0}) - {1}", OrderId, DatePlaced);
+            return string.Format("Customer Order <Id: {0}, Date Placed: {1:MM/dd/yyyy}>", OrderId, DatePlaced);
         }
     }
 }

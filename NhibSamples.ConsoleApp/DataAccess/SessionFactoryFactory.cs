@@ -38,7 +38,7 @@
     {
         public static void WithMappings(this ModelMapper mapper, Configuration configuration)
         {
-            mapper.AddMappings(typeof(OrderMap).Assembly.GetTypes());
+            mapper.AddMappings(typeof(CustomerOrderMap).Assembly.GetTypes());
             configuration.AddMapping(mapper.CompileMappingForAllExplicitlyAddedEntities());
         }
     }

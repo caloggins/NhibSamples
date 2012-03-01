@@ -68,7 +68,8 @@
     <Compile Include="Bootstrap.cs" />
     <Compile Include="DataAccess\DatabaseTable.cs" />
     <Compile Include="DataAccess\ISessionFactoryFactory.cs" />
-    <Compile Include="DataAccess\OrderMap.cs" />
+    <Compile Include="DataAccess\CustomerOrderMap.cs" />
+    <Compile Include="DataAccess\ProductMap.cs" />
     <Compile Include="DataAccess\SessionFactoryFactory.cs" />
     <Compile Include="DataAccess\UserTypes\BinaryTimestamp.cs" />
     <Compile Include="IHazRun.cs" />

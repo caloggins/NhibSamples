@@ -2,6 +2,8 @@ namespace NhibSamples.ConsoleApp.DataAccess
 {
     public class DatabaseTable
     {
-        public static string Orders = "Orders";
+        public static string CustomerOrders = "CustomerOrders";
+
+        public static string Products = "Products";
     }
 }
