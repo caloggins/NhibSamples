@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CqrsTddExample.Library", "CqrsTddExample.Library\CqrsTddExample.Library.csproj", "{C94978A8-EDB3-46FA-B40F-1EB66BB9A524}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CqrsTddExample.UnitTests", "CqrsTddExample.UnitTests\CqrsTddExample.UnitTests.csproj", "{6CE7BB3C-D17F-4A8B-9265-B5330AD4B256}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{938C7AE3-DB98-4DB4-ADD4-4A563834E296}"
+	ProjectSection(SolutionItems) = preProject
+		CqrsTddExample.vsmdi = CqrsTddExample.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = CqrsTddExample.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C94978A8-EDB3-46FA-B40F-1EB66BB9A524}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C94978A8-EDB3-46FA-B40F-1EB66BB9A524}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C94978A8-EDB3-46FA-B40F-1EB66BB9A524}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C94978A8-EDB3-46FA-B40F-1EB66BB9A524}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CE7BB3C-D17F-4A8B-9265-B5330AD4B256}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CE7BB3C-D17F-4A8B-9265-B5330AD4B256}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CE7BB3C-D17F-4A8B-9265-B5330AD4B256}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CE7BB3C-D17F-4A8B-9265-B5330AD4B256}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
