@@ -25,6 +25,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TableScripts", "TableScript
 		ProductsTable.sql = ProductsTable.sql
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6F6924A5-36DF-4DD6-9C18-9A8242F57D5B}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = NhibSamples.vsmdi
