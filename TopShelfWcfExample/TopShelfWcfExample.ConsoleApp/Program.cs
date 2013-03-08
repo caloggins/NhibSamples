@@ -49,9 +49,10 @@
 
                     config.RunAsLocalSystem();
 
-                    config.SetDescription("This is an example service.");
-                    config.SetDisplayName("My Example Service");
-                    config.SetServiceName("MyExampleService");
+                    var serviceDescription = container.Resolve<ServiceDescription>();
+                    config.SetDescription(serviceDescription.Description);
+                    config.SetDisplayName(serviceDescription.DisplayName);
+                    config.SetServiceName(serviceDescription.ServiceName);
                 });
         }
 
@@ -59,6 +60,7 @@
         {
             var container = new WindsorContainer()
                 .AddFacility<LoggingFacility>(facility => facility.LogUsing(LoggerImplementation.NLog))
+                .Install(Configuration.FromAppConfig())
                 .Install(FromAssembly.This());
             return container;
         }
