@@ -2,7 +2,6 @@
 {
     using System;
     using System.Diagnostics;
-    using Castle.Facilities.Logging;
     using Castle.Windsor;
     using Castle.Windsor.Installer;
     using Topshelf;
@@ -33,9 +32,9 @@
         {
             HostFactory.Run(config =>
                 {
-                    config.Service<IExampleService>(settings =>
+                    config.Service<IGenericService>(settings =>
                         {
-                            settings.ConstructUsing(hostSettings => container.Resolve<IExampleService>());
+                            settings.ConstructUsing(hostSettings => container.Resolve<IGenericService>());
                             settings.WhenStarted(service => service.Start());
                             settings.WhenStopped(service =>
                                 {
@@ -59,9 +58,9 @@
         private static IWindsorContainer ContainerFactory()
         {
             var container = new WindsorContainer()
-                .AddFacility<LoggingFacility>(facility => facility.LogUsing(LoggerImplementation.NLog))
                 .Install(Configuration.FromAppConfig())
                 .Install(FromAssembly.This());
+
             return container;
         }
     }

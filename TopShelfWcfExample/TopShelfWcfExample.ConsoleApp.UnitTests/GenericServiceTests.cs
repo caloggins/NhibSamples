@@ -1,15 +1,20 @@
 ﻿namespace TopShelfWcfExample.ConsoleApp.UnitTests
 {
+    using System;
+    using System.Linq;
     using Castle.Core.Logging;
+    using Castle.MicroKernel.Registration;
+    using Castle.Windsor;
     using FakeItEasy;
     using FluentAssertions;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-    public static class ExampleServiceTests
+    public static class GenericServiceTests
     {
         public class ExampleServiceContext : ContextSpecification
         {
-            protected ExampleService Sut;
+            protected GenericService Sut;
+            protected IWindsorContainer Container;
             protected ILogger Logger;
 
             protected override void Context()
@@ -17,7 +22,8 @@
                 base.Context();
 
                 Logger = A.Fake<ILogger>();
-                Sut = new ExampleService(Logger);
+                Container = new WindsorContainer();
+                Sut = new GenericService(Container, Logger);
             }
         }
 
@@ -25,18 +31,27 @@
         public class WhenTheServiceHasBeenStarted : ExampleServiceContext
         {
             private string loggedMessage;
+            private Func<Type[]> registeredServices;
 
             protected override void Context()
             {
                 base.Context();
 
                 A.CallTo(() => Logger.Debug(A<string>.Ignored))
-                 .Invokes(call => loggedMessage = (string) call.Arguments[0]);
+                 .Invokes(call => loggedMessage = (string)call.Arguments[0]);
+
+                registeredServices = () => Container.GetImplementationTypesFor<IWcfService>();
             }
 
             protected override void BecauseOf()
             {
                 Sut.Start();
+            }
+
+            [TestMethod]
+            public void ItShouldRegisterTheWcfService()
+            {
+                registeredServices().Any(type => type == typeof(MyWcfService)).Should().BeTrue();
             }
 
             [TestMethod]
@@ -57,6 +72,8 @@
 
                 A.CallTo(() => Logger.Debug(A<string>.Ignored))
                  .Invokes(call => loggedMessage = (string)call.Arguments[0]);
+
+                Sut.Start();
             }
 
             protected override void BecauseOf()

@@ -1,6 +1,6 @@
 ﻿namespace TopShelfWcfExample.ConsoleApp
 {
-    public interface IExampleService
+    public interface IGenericService
     {
         void Start();
         void Stop();

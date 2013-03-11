@@ -35,7 +35,7 @@
             [TestMethod]
             public void ItShouldRegisterTheService()
             {
-                container.GetImplementationTypesFor<IExampleService>().Should().HaveCount(1);
+                container.GetImplementationTypesFor<IGenericService>().Should().HaveCount(1);
             }
         }
     }
