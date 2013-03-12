@@ -1,6 +1,6 @@
 ﻿namespace TopShelfWcfExample.ConsoleApp
 {
-    public class MyWcfService :IWcfService
+    public class MyWcfService : IWcfService
     {
         public string Greet()
         {
