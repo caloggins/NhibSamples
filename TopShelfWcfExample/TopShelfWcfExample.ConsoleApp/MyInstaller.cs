@@ -1,5 +1,6 @@
 ﻿namespace TopShelfWcfExample.ConsoleApp
 {
+    using System;
     using Castle.Facilities.Logging;
     using Castle.Facilities.WcfIntegration;
     using Castle.MicroKernel.Registration;
@@ -9,9 +10,11 @@
 
     public class MyInstaller : IWindsorInstaller
     {
+        public Func<LoggerImplementation> GetLoggerImplementation = () => LoggerImplementation.NLog;
+
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.AddFacility<LoggingFacility>(facility => facility.LogUsing(LoggerImplementation.NLog))
+            container.AddFacility<LoggingFacility>(facility => facility.LogUsing(GetLoggerImplementation()))
                 .AddFacility<WcfFacility>();
 
             container.Register(

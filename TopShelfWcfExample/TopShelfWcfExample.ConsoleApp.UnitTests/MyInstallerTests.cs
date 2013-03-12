@@ -1,8 +1,6 @@
 ﻿namespace TopShelfWcfExample.ConsoleApp.UnitTests
 {
-    using System;
-    using System.Linq;
-    using Castle.Core.Logging;
+    using Castle.Facilities.Logging;
     using Castle.Windsor;
     using FluentAssertions;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -17,7 +15,7 @@
             {
                 base.Context();
 
-                Sut = new MyInstaller();
+                Sut = new MyInstaller { GetLoggerImplementation = () => LoggerImplementation.Null };
             }
         }
 
