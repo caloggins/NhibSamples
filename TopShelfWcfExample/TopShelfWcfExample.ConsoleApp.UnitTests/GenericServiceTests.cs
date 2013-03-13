@@ -3,7 +3,6 @@
     using System;
     using System.Linq;
     using Castle.Core.Logging;
-    using Castle.MicroKernel.Registration;
     using Castle.Windsor;
     using FakeItEasy;
     using FluentAssertions;
@@ -60,7 +59,7 @@
                 loggedMessage.Should().Be("The service was started.");
             }
         }
-
+        
         [TestClass]
         public class WhenTheServiceIsStopped : ExampleServiceContext
         {

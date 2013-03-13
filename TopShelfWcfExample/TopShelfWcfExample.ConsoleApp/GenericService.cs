@@ -4,6 +4,7 @@
     using Castle.Facilities.WcfIntegration;
     using Castle.MicroKernel.Registration;
     using Castle.Windsor;
+    using MyBusinessLibrary;
 
     public class GenericService : IGenericService
     {
@@ -19,7 +20,8 @@
         public void Start()
         {
             container.Register(
-                Component.For<IWcfService>().ImplementedBy<MyWcfService>().AsWcfService(new DefaultServiceModel())
+                Component.For<IWcfService>().ImplementedBy<MyWcfService>().AsWcfService(new DefaultServiceModel()),
+                Component.For<GreetingWithNameCommand>()
                 );
 
             logger.Debug("The service was started.");

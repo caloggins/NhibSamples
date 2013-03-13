@@ -117,6 +117,12 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TopShelfWcfExample.MyBusinessLibrary\TopShelfWcfExample.MyBusinessLibrary.csproj">
+      <Project>{AC76933F-D42A-43A9-A649-B19FF76D4519}</Project>
+      <Name>TopShelfWcfExample.MyBusinessLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

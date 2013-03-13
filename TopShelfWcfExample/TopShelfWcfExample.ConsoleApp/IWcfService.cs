@@ -7,5 +7,8 @@
     {
         [OperationContract]
         string Greet();
+
+        [OperationContract]
+        string GetGrettingWithName(string name);
     }
 }
