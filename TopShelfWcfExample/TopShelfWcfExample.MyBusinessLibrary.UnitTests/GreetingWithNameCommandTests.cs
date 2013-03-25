@@ -25,13 +25,14 @@
 
             protected override void BecauseOf()
             {
-                thrownException = Capture.Exception(() => Sut.GetGreeting());
+                thrownException = Capture.Exception(() => Sut.Execute());
             }
 
             [TestMethod]
             public void AnExceptionShouldBeThrown()
             {
-                thrownException.Should().BeOfType<InvalidOperationException>();
+                thrownException.Should().BeOfType<MyCustomException>();
+                thrownException.Message.Should().Be("A valid name was not provided.");
             }
         }
 
@@ -45,7 +46,7 @@
             protected override void BecauseOf()
             {
                 Sut.Name = SampleName;
-                returnedGreeting = Sut.GetGreeting();
+                returnedGreeting = Sut.Execute();
             }
 
             [TestMethod]

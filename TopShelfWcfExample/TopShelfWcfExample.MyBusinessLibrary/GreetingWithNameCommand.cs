@@ -1,15 +1,13 @@
 ﻿namespace TopShelfWcfExample.MyBusinessLibrary
 {
-    using System;
-
     public class GreetingWithNameCommand
     {
         public string Name { get; set; }
 
-        public virtual string GetGreeting()
+        public virtual string Execute()
         {
             if (string.IsNullOrWhiteSpace(Name))
-                throw new InvalidOperationException();
+                throw new MyCustomException("A valid name was not provided.");
 
             return string.Format("Hello, {0}.", Name);
         }

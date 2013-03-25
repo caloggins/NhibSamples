@@ -19,7 +19,7 @@
         public string GetGrettingWithName(string name)
         {
             greetingWithNameCommand.Name = name;
-            return greetingWithNameCommand.GetGreeting();
+            return greetingWithNameCommand.Execute();
         }
     }
 }

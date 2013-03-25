@@ -50,7 +50,7 @@
             {
                 base.Context();
 
-                A.CallTo(() => GreetingWithNameCommand.GetGreeting())
+                A.CallTo(() => GreetingWithNameCommand.Execute())
                  .Invokes(() => GreetingWithNameCommand.Name.Should().Be(SampleInput))
                  .Returns(ExpectedMessage);
             }
