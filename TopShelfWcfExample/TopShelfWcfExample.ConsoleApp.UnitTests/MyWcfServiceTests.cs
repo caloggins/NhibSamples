@@ -10,13 +10,13 @@
         public class MyWcfServiceContext : ContextSpecification
         {
             protected MyWcfService Sut;
-            protected GreetingWithNameCommand GreetingWithNameCommand;
+            protected NewGreetingWithNameCommand GreetingWithNameCommand;
 
             protected override void Context()
             {
                 base.Context();
 
-                GreetingWithNameCommand = A.Fake<GreetingWithNameCommand>();
+                GreetingWithNameCommand = A.Fake<NewGreetingWithNameCommand>();
                 Sut = new MyWcfService(GreetingWithNameCommand);
             }
         }

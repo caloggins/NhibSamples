@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLibraryInstaller.cs" />
+    <Compile Include="NewGreetingWithNameCommand.cs" />
     <Compile Include="GreetingWithNameCommand.cs" />
     <Compile Include="MyCustomException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

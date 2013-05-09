@@ -4,9 +4,9 @@
 
     public class MyWcfService : IWcfService
     {
-        private readonly GreetingWithNameCommand greetingWithNameCommand;
+        private readonly NewGreetingWithNameCommand greetingWithNameCommand;
 
-        public MyWcfService(GreetingWithNameCommand greetingWithNameCommand)
+        public MyWcfService(NewGreetingWithNameCommand greetingWithNameCommand)
         {
             this.greetingWithNameCommand = greetingWithNameCommand;
         }
