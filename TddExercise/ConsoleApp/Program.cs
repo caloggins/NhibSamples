@@ -51,6 +51,7 @@
             catch (InvalidInputException)
             {
                 display.Write("I didn't understand that, please try again.");
+                inputMonitor.ReadLine();
             }
         }
     }

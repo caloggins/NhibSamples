@@ -127,6 +127,13 @@
                 A.CallTo(() => Display.Write(@"I didn't understand that, please try again."))
                  .MustHaveHappened(Repeated.Exactly.Once);
             }
+
+            [TestMethod]
+            public void ItShouldReceiveInputAgain()
+            {
+                A.CallTo(() => InputMonitor.ReadLine())
+                 .MustHaveHappened(Repeated.Exactly.Once);
+            }
         }
     }
 }
